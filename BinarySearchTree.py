@@ -8,8 +8,20 @@ class BinaryTree:
     def __init__(self, root) -> None:
         self.root = root
 
-    # def search_node(self, data):
-    #     if 
+    def search_node(self, root, data):
+        print("data", data)
+        
+        if data < root.data:
+            if root.left is None:
+                return f'{data} NOT found'
+            return self.search_node(root.left, data)
+        elif data > root.data:
+            if root.right is None:
+                return f'{data} NOT found'
+            return self.search_node(root.right, data)
+        else:
+            return f'{data} is found'
+
     # Insert method to create nodes
     # def insert(self, data):
     #     if self.root.data:
@@ -25,19 +37,6 @@ class BinaryTree:
     #                 self.root.right.insert(data)
     #         else:
     #             self.root.data = data
-
-    # # findval method to compare the value with nodes
-    # def findval(self, lkpval):
-    #     if lkpval < self.data:
-    #         if self.left is None:
-    #             return str(lkpval)+" Not Found"
-    #         return self.left.findval(lkpval)
-    #     elif lkpval > self.data:
-    #         if self.right is None:
-    #            return str(lkpval)+" Not Found"
-    #         return self.right.findval(lkpval)
-    #     else:
-    #         print(str(self.data) + ' is found')
 
     # # Find minimum node
     # def find_minimum(self, root):
@@ -78,12 +77,6 @@ class BinaryTree:
         print(node.data)
         self.in_order_tree(node.right)
 
-        # if self.root.left is not None:
-        #     self.in_order_tree(self.root.left)
-        # print(node.data)
-        # if self.root.right is not None:
-        #     self.in_order_tree(self.root.right)
-
     # Pre order: root -> left -> right
     def pre_order_tree(self, node):
         if node is None: 
@@ -100,11 +93,6 @@ class BinaryTree:
         self.post_order_tree(node.right)
         print(node.data)
 
-# root = Node(12)
-
-# tree.insert(6)
-# tree.insert(14)
-# tree.insert(3)
 root = Node(12)
 root.left = Node(3)
 root.right = Node(14)
@@ -114,15 +102,17 @@ tree = BinaryTree(root)
 print("In order")
 tree.in_order_tree(tree.root)
 
-print("Pre order")
-tree.pre_order_tree(tree.root)
+# print("Pre order")
+# tree.pre_order_tree(tree.root)
 
-print("Post order")
-tree.post_order_tree(tree.root)
+# print("Post order")
+# tree.post_order_tree(tree.root)
+
+print(tree.search_node(tree.root, 2))
+print(tree.search_node(tree.root, 1))
 # print(root.find_minimum(root).data)
 # print(root.find_maximum(root).data)
-# print(root.findval(7))
-# print(root.findval(14))
+
 
 # class Node:
 #     def __init__(self, data):
