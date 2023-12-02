@@ -65,3 +65,4 @@ def merge_sort(array):
     return merged_array
 
 print(merge_sort([1, 9, 5, 7, 2, 8, 3, 4, 6]))
+print(merge_sort([1, 9, 5, 7, 2, 8, 1, 4, 6]))
