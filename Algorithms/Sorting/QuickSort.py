@@ -44,3 +44,6 @@ def partition(array, low, high):
 
 array = [1, 9, 5, 7, 2, 8, 3, 4, 6]
 print(quick_sort(array, 0, len(array) - 1))
+
+array2 = [11, 19, 15, 17, 12, 18, 13, 14, 16]
+print(quick_sort(array2, 0, len(array2) - 1))
