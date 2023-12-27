@@ -115,6 +115,16 @@ class GraphList:
             if source in self.graph[destination]:
                 self.graph[destination].remove(WeightedEdge(source, -1))
 
+    def remove_vertex(self, vertex):
+
+        # Remove vertex from graph
+        del self.graph[vertex]
+
+        # Remove reference to vertex from other vertices
+        for adj_vertex in self.graph:
+            if vertex in self.graph[adj_vertex]:
+                self.graph[adj_vertex].remove(vertex)
+                
     def has_edge(self, source, destination):
         if source not in self.graph:
             return False

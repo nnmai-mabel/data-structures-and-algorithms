@@ -80,6 +80,7 @@ class LinkedList:
     # Else make current_node equal to head and traverse to
     # last node
 
+    # keep a TAIL of linked list -> O(1)
     def insert_at_end(self, data):
         new_node = Node(data)
 
@@ -100,6 +101,7 @@ class LinkedList:
             return
         
         self.head = self.head.next
+        # aware that remove the node you are trying to delete
 
     # Remove last node from linked list
     # Traverse to the second last node
